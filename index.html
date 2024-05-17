@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎访问李小布的个人网页</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f8f9fa;
+            color: #333;
+            overflow: hidden; /* 隐藏页面外部溢出的内容 */
+            position: relative; /* 设置形状容器相对定位 */
+        }
+        h1, h2, h3 {
+            color: #007bff;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .intro {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .profile {
+            margin-bottom: 20px;
+        }
+        .profile img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .games {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .game-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .game-button:hover {
+            background-color: #0056b3;
+        }
+        .shape {
+            position: absolute;
+            pointer-events: auto; /* 允许形状图标响应页面上的点击事件 */
+        }
+        .square {
+            width: 20px;
+            height: 20px;
+            background-color: #ff6347; /* 红色 */
+            transform: rotate(45deg); /* 旋转45度 */
+        }
+        .circle {
+            width: 20px;
+            height: 20px;
+            background-color: #00bfff; /* 蓝色 */
+            border-radius: 50%; /* 圆形 */
+        }
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid #32cd32; /* 绿色 */
+        }
+        .star {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid #ffc0cb; /* 粉色 */
+            position: relative;
+        }
+        .star::after {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 20px solid #ffc0cb; /* 粉色 */
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>欢迎访问李小布的个人网页</h1>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>关于我</h2>
+            <p>大家好！我是李小布，一个对游戏、摄影、羽毛球、自行车和编程充满热情的人。欢迎来到我的个人网页，这里分享了我在各个领域的一些见解和经验。</p>
+        </section>
+        <section class="profile">
+            <h2>我的B站主页</h2>
+            <p>想了解更多关于我和我的作品？欢迎访问我的B站主页：</p>
+            <p><a href="https://space.bilibili.com/390334514?spm_id_from=333.337.0.0" target="_blank">点击这里访问我的B站主页</a></p>
+        </section>
+        <section class="contact">
+            <h2>联系我</h2>
+            <p>有任何问题或建议？请通过邮箱联系我：<a href="mailto:2096183361@qq.com">2096183361@qq.com</a></p>
+        </section>
+        <section class="games">
+            <h2>小游戏</h2>
+            <p>来玩一个简单的点击计数游戏吧！点击下面的按钮看看能点多少次：</p>
+            <button class="game-button" onclick="createShape()">点击这里生成形状</button>
+        </section>
+    </main>
+    <footer>
+        <p>版权所有 &copy; 2024 李小布</p>
+    </footer>
+
+    <script>
+        function createShape() {
+            const shapes = ['square', 'circle', 'triangle', 'star'];
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+
+            const shape = document.createElement('div');
+            shape.classList.add('shape', randomShape);
+            shape.style.left = Math.random() * window.innerWidth + 'px';
+            shape.style.top = Math.random() * window.innerHeight + 'px';
+
+            shape.addEventListener('click', function() {
+                shape.remove();
+            });
+
+            document.body.appendChild(shape);
+        }
+    </script>
+</body>
+</html>
